@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Nav from "./Nav";
 
 export const metadata: Metadata = {
-  title: "Résolveur d'équations",
+  title: "MathLab — équations, fonctions & physique",
   description:
-    "Résout les équations du 1er et 2nd degré en expliquant chaque étape du raisonnement.",
+    "Explorer les équations, les fonctions et la relativité restreinte avec des explications pas à pas et des graphiques.",
 };
 
 export default function RootLayout({
@@ -14,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body>
+        <Nav />
+        {children}
+      </body>
     </html>
   );
 }

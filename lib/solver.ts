@@ -244,6 +244,10 @@ export type Result = {
   steps: Step[];
   solutions: string[];
   summary: string;
+  // Données pour le tracé : coefficients de f(x) = membre gauche − membre droit
+  // (indexés par puissance de x) et racines réelles (abscisses des solutions).
+  poly: number[];
+  roots: number[];
 };
 
 export function solveEquation(raw: string): Result {
@@ -280,13 +284,21 @@ export function solveEquation(raw: string): Result {
         steps,
         solutions: ["Tout réel x est solution"],
         summary: "Une infinité de solutions : l'équation est vraie pour tout x.",
+        poly,
+        roots: [],
       };
     }
     steps.push({
       title: "Analyse",
       detail: `On obtient ${fmtNum(c)} = 0, ce qui est faux. L'équation n'a pas de solution.`,
     });
-    return { steps, solutions: [], summary: "Aucune solution (égalité impossible)." };
+    return {
+      steps,
+      solutions: [],
+      summary: "Aucune solution (égalité impossible).",
+      poly,
+      roots: [],
+    };
   }
 
   // ----- Degré 1 : ax + b = 0 -----
@@ -310,6 +322,8 @@ export function solveEquation(raw: string): Result {
       steps,
       solutions: [`x = ${fmtNum(sol)}`],
       summary: `Solution unique : x = ${fmtNum(sol)} (≈ ${sol.toFixed(4)}).`,
+      poly,
+      roots: [sol],
     };
   }
 
@@ -339,6 +353,8 @@ export function solveEquation(raw: string): Result {
         steps,
         solutions: [`x₁ = ${re} − ${im}i`, `x₂ = ${re} + ${im}i`],
         summary: "Pas de solution réelle (Δ < 0). Deux solutions complexes conjuguées.",
+        poly,
+        roots: [],
       };
     }
 
@@ -356,6 +372,8 @@ export function solveEquation(raw: string): Result {
         steps,
         solutions: [`x = ${fmtNum(sol)}`],
         summary: `Solution unique (racine double) : x = ${fmtNum(sol)}.`,
+        poly,
+        roots: [sol],
       };
     }
 
@@ -378,6 +396,8 @@ export function solveEquation(raw: string): Result {
       steps,
       solutions: [`x₁ = ${fmtNum(x1)}`, `x₂ = ${fmtNum(x2)}`],
       summary: `Deux solutions : x₁ = ${fmtNum(x1)} et x₂ = ${fmtNum(x2)}.`,
+      poly,
+      roots: [x1, x2],
     };
   }
 
