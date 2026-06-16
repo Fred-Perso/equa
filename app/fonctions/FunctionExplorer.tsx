@@ -19,6 +19,7 @@ type Preset = {
   desc: string;
   expr: (p: Record<string, number>) => string;
   rel?: boolean; // fait le lien avec la relativité
+  asym0?: boolean; // trace l'asymptote y = 0 (la courbe tend vers zéro)
   xLabel?: string;
   yLabel?: string;
 };
@@ -80,6 +81,42 @@ const PRESETS: Preset[] = [
     yRange: [-2, 20],
     desc: "Une croissance (ou décroissance) fulgurante. Sert à décrire les intérêts composés, une épidémie, la radioactivité…",
     expr: (p) => `f(x) = ${p.a}·e^(${p.k}·x)`,
+  },
+  {
+    key: "inv2",
+    emoji: "⤵️",
+    label: "1/x² — tend vers 0",
+    params: [],
+    f: (x) => (x !== 0 ? 1 / (x * x) : NaN),
+    xRange: [-6, 6],
+    yRange: [-0.6, 8],
+    desc: "Quand x s'éloigne de 0 (à droite OU à gauche), la courbe plonge vers 0 et se colle à l'axe… sans jamais le toucher. La ligne verte en pointillés est l'asymptote y = 0.",
+    expr: () => "f(x) = 1 / x²",
+    asym0: true,
+  },
+  {
+    key: "decay",
+    emoji: "📉",
+    label: "e^(−x) — décroissance",
+    params: [],
+    f: (x) => Math.exp(-x),
+    xRange: [-2, 6],
+    yRange: [-0.6, 6],
+    desc: "La décroissance exponentielle : divisée par le même facteur à chaque pas. Elle fond vers 0 très vite, mais reste toujours au-dessus de l'axe (asymptote y = 0).",
+    expr: () => "f(x) = e^(−x)",
+    asym0: true,
+  },
+  {
+    key: "gauss",
+    emoji: "🔔",
+    label: "Cloche de Gauss",
+    params: [],
+    f: (x) => Math.exp(-x * x),
+    xRange: [-4, 4],
+    yRange: [-0.15, 1.2],
+    desc: "La fameuse courbe en cloche (celle des probabilités). Ses deux extrémités s'aplatissent vers 0 des deux côtés, sans jamais l'atteindre.",
+    expr: () => "f(x) = e^(−x²)",
+    asym0: true,
   },
   {
     key: "lorentz",
@@ -241,6 +278,22 @@ export default function FunctionExplorer() {
                 {fmtTick(t)}
               </text>
             )
+          )}
+
+          {/* asymptote y = 0 : la courbe s'en approche sans jamais la toucher */}
+          {preset.asym0 && (
+            <>
+              <line
+                x1={PAD_L}
+                y1={sy(0)}
+                x2={W - PAD_R}
+                y2={sy(0)}
+                className="asymptote"
+              />
+              <text x={W - PAD_R - 4} y={sy(0) - 7} className="asym-label" textAnchor="end">
+                asymptote y = 0 (jamais atteinte)
+              </text>
+            </>
           )}
 
           {segments.map((seg, i) => (

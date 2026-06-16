@@ -4,9 +4,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const LINKS = [
-  { href: "/", label: "Équations", emoji: "🧮" },
+  { href: "/", label: "Accueil", emoji: "🧭" },
+  { href: "/equations", label: "Équations", emoji: "🧮" },
   { href: "/fonctions", label: "Fonctions", emoji: "📈" },
-  { href: "/relativite", label: "Relativité restreinte", emoji: "🌌" },
+  { href: "/relativite", label: "Relativité", emoji: "🌌" },
+  { href: "/quantique", label: "Quantique", emoji: "⚛️" },
+  { href: "/turing", label: "Machine de Turing", emoji: "🤖" },
+  { href: "/spinoza", label: "Spinoza", emoji: "♾️" },
+  { href: "/limites", label: "Limites de la science", emoji: "🧩" },
+  { href: "/vertige", label: "Le vertige", emoji: "🌀" },
 ];
 
 export default function Nav() {

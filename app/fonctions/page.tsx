@@ -142,6 +142,59 @@ export default function FonctionsPage() {
           </div>
         ))}
 
+        {/* ---- Les fonctions qui tendent vers zéro ---- */}
+        <h2 className="learn-heading">📉 Les courbes qui frôlent zéro… sans jamais y toucher</h2>
+        <div className="card eq-block">
+          <h3 className="eq-title">L'histoire du mur qu'on n'atteint jamais</h3>
+          <p className="eq-explain">
+            Imagine que tu marches vers un mur, et qu'à chaque pas tu parcours{" "}
+            <strong>la moitié de la distance qui reste</strong>. Tu t'en approches encore,
+            encore, encore… mais il te restera <strong>toujours</strong> une moitié. Tu ne
+            le touches jamais !
+          </p>
+          <p className="eq-explain">
+            Certaines fonctions font pareil avec l'axe horizontal : elles{" "}
+            <strong>descendent vers 0</strong> et s'en rapprochent à l'infini, mais sans
+            jamais l'atteindre. Cette droite qu'on frôle sans la toucher porte un nom :
+            une <strong>asymptote</strong>.
+          </p>
+
+          <h4 className="tuto-h">Trois exemples (à essayer dans l'explorateur ⤴︎)</h4>
+          <ul className="tuto-steps">
+            <li>
+              <code>1/x²</code> — plus x s'éloigne de 0, plus la courbe s'écrase vers le bas.
+            </li>
+            <li>
+              <code>e^(−x)</code> — la « décroissance exponentielle » : elle fond vers 0 à
+              toute vitesse (c'est exactement « la moitié du mur à chaque pas »).
+            </li>
+            <li>
+              <code>e^(−x²)</code> — la cloche de Gauss, qui s'aplatit vers 0 des deux côtés.
+            </li>
+          </ul>
+
+          <div className="eq-example">
+            <strong>Le truc à comprendre :</strong> 0 est une <em>cible</em>, pas une{" "}
+            <em>étape</em>. La fonction se rapproche d'aussi près qu'on veut (un millième,
+            un milliardième…), mais la valeur 0 n'est jamais réellement atteinte. On dit
+            que la fonction <strong>« tend vers 0 »</strong>.
+          </div>
+
+          <p className="eq-explain">
+            Et ce n'est pas qu'une curiosité de maths : c'est la forme de tout ce qui{" "}
+            <strong>s'éteint en douceur sans jamais finir tout à fait</strong> — ☢️ la
+            radioactivité (divisée par deux à chaque demi-vie), ☕ le café qui refroidit,
+            🔋 une batterie qui se décharge, 🔔 un écho qui s'estompe.
+          </p>
+          <div className="eq-example">
+            <strong>À voir de tes yeux :</strong> dans l'explorateur plus haut, choisis{" "}
+            <em>1/x²</em>, <em>e^(−x)</em> ou la <em>cloche de Gauss</em>. La ligne{" "}
+            <span style={{ color: "#86efac", fontWeight: 700 }}>verte en pointillés</span>{" "}
+            est l'asymptote <code>y = 0</code> : tu verras la courbe s'en approcher
+            inexorablement… sans jamais la franchir.
+          </div>
+        </div>
+
         {/* ---- Le pont avec la relativité ---- */}
         <h2 className="learn-heading">🌌 Le pont avec la relativité</h2>
         <div className="card eq-block highlight">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "./Nav";
+import JourneyNav from "./JourneyNav";
 
 export const metadata: Metadata = {
   title: "MathLab — équations, fonctions & physique",
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body>
         <Nav />
         {children}
+        <JourneyNav />
       </body>
     </html>
   );

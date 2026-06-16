@@ -128,6 +128,168 @@ body {
   max-width: 760px;
 }
 
+/* ----- Page d'accueil : hero + parcours ----- */
+.hero {
+  text-align: center;
+  padding: 1.5rem 0 1rem;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent2);
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 2.3rem;
+  line-height: 1.15;
+  margin-bottom: 0.9rem;
+}
+
+.tagline {
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 auto 1.5rem;
+  font-size: 1.02rem;
+}
+
+.hero-cta {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.hero-cta:hover {
+  background: var(--accent2);
+  transform: translateY(-2px);
+}
+
+.hub {
+  list-style: none;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.hub-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+
+.hub-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.hub-badge {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.hub-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.hub-title {
+  font-weight: 700;
+  font-size: 1.08rem;
+}
+
+.hub-desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.hub-go {
+  color: var(--accent2);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.hub-bridge {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-style: italic;
+  padding: 0.6rem 1rem 0.9rem 2.2rem;
+  line-height: 1.4;
+}
+
+.hub-bridge-arrow {
+  color: var(--accent2);
+  font-style: normal;
+  font-weight: 800;
+  margin-right: 0.2rem;
+}
+
+/* barre précédent / suivant du parcours */
+.jnav {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.jnav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 10px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.jnav-link:hover {
+  border-color: var(--accent);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.jnav-link.next {
+  margin-left: auto;
+}
+
+.jnav-arr {
+  color: var(--accent2);
+  font-weight: 800;
+}
+
 .header {
   text-align: center;
   margin-bottom: 1.75rem;
@@ -788,6 +950,20 @@ code {
   stroke-dashoffset: 0;
 }
 
+/* asymptote y = 0 */
+.graph .asymptote {
+  stroke: var(--green);
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+  opacity: 0.9;
+}
+
+.graph .asym-label {
+  fill: #86efac;
+  font-size: 11px;
+  font-weight: 600;
+}
+
 /* ----- Liste-pont (fonctions ↔ relativité) ----- */
 .bridge-list {
   display: flex;
@@ -822,6 +998,347 @@ code {
 .bridge-use {
   color: var(--text);
   font-size: 0.9rem;
+}
+
+/* ----- Machine de Turing ----- */
+/* ----- Citations (blockquote) ----- */
+.quote {
+  position: relative;
+  background: #0f172a;
+  border-left: 4px solid var(--accent2);
+  border-radius: 0 10px 10px 0;
+  padding: 1rem 1.2rem 1rem 2.4rem;
+  margin: 0.9rem 0;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.quote::before {
+  content: "\201C";
+  position: absolute;
+  left: 0.55rem;
+  top: 0.1rem;
+  font-size: 2.4rem;
+  color: var(--accent2);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.quote cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ----- Scène du robot (intro concrète) ----- */
+.robot-scene {
+  background: #0f172a;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem 1rem 1rem;
+  margin: 1.1rem 0;
+  text-align: center;
+}
+
+.robot-figure {
+  font-size: 2.4rem;
+  margin-bottom: 0.2rem;
+  animation: robotBob 1.6s ease-in-out infinite;
+}
+
+@keyframes robotBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.robot-tiles {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.robot-tiles .rt {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1e293b;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1.4rem;
+}
+
+.robot-tiles .rt.here {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+  transform: scale(1.1);
+}
+
+.robot-caption {
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.robot-card {
+  background: #fffbeb;
+  color: #422006;
+  border: 1px solid #fde68a;
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  margin: 0.5rem 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.robot-card strong {
+  color: #92400e;
+}
+
+/* ----- Tableau de traduction ----- */
+.trans-table {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.trans-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.trans-row > span {
+  padding: 0.7rem 0.9rem;
+  font-size: 0.92rem;
+  border-top: 1px solid var(--border);
+}
+
+.trans-row > span:first-child {
+  border-right: 1px solid var(--border);
+  background: #0f172a;
+}
+
+.trans-row.trans-head > span {
+  border-top: none;
+  font-weight: 700;
+  color: var(--accent2);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  background: rgba(99, 102, 241, 0.12);
+}
+
+/* légende des symboles */
+.tm-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 0.25rem 0 0.5rem;
+  padding: 0.6rem 0.85rem;
+  background: #0f172a;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.tm-leg-sym {
+  display: inline-block;
+  min-width: 1.4em;
+  text-align: center;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-weight: 800;
+  color: var(--accent2);
+  font-size: 1.05rem;
+}
+
+/* phrase de narration */
+.tm-narration {
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  min-height: 3.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.tm-narration.done {
+  background: rgba(34, 197, 94, 0.12);
+  border-color: var(--green);
+}
+
+.tm-result {
+  background: rgba(34, 197, 94, 0.14);
+  border: 1px solid var(--green);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1.1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.tm-result strong {
+  color: #86efac;
+  font-size: 1.15rem;
+}
+
+.tm-tip {
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.tm-tape-wrap {
+  position: relative;
+  margin: 2.2rem 0 1.25rem;
+}
+
+.tm-state-badge {
+  position: absolute;
+  top: -1.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.tm-state-badge[data-halted="true"] {
+  background: var(--green);
+}
+
+.tm-head-arrow {
+  position: absolute;
+  top: 0.15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent2);
+  font-size: 1.3rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tm-tape {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding-top: 1.6rem;
+  overflow: hidden;
+}
+
+.tm-cell {
+  flex-shrink: 0;
+  width: 44px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f172a;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.tm-cell.blank {
+  color: #334155;
+}
+
+.tm-cell.head {
+  border-color: var(--accent);
+  background: rgba(99, 102, 241, 0.2);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+  transform: scale(1.12);
+  color: var(--text);
+}
+
+@media (max-width: 560px) {
+  .tm-cell {
+    width: 34px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+}
+
+.tm-table-title {
+  font-size: 1rem;
+  margin: 1.75rem 0 0.4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.tm-table-scroll {
+  overflow-x: auto;
+}
+
+.tm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.tm-table th,
+.tm-table td {
+  border: 1px solid var(--border);
+  padding: 0.55rem 0.7rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tm-table th {
+  background: #0f172a;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.tm-table .tm-st {
+  font-weight: 800;
+  color: var(--accent2);
+  background: #0f172a;
+}
+
+.tm-table tr.active-row .tm-st {
+  background: rgba(99, 102, 241, 0.18);
+}
+
+.tm-table .active-cell {
+  background: rgba(99, 102, 241, 0.25);
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+.tm-table .rw {
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-weight: 700;
+}
+
+.tm-table .mv {
+  margin: 0 0.3rem;
+  color: var(--accent2);
+}
+
+.tm-table .nx {
+  color: var(--muted);
+}
+
+.tm-table .muted {
+  color: #334155;
 }
 
 /* ----- Blocs d'équations ----- */
